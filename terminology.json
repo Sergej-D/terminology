@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "lastModified": "2025-10-30",
+    "author": "Terminologie-Team",
+    "description": "Beispiel-Terminologiedatei für Termchecker, AI Assistant und Automatisierung"
+  },
+  "globalRules": {
+    "productNameExceptions": ["Base Station"],
+    "localeReplacements": {
+      "de-DE": { "RF": "HF" },
+      "fr-FR": { "RF": "HF" }
+    },
+    "termChecks": {
+      "doNotTranslateProductNames": true
+    }
+  },
+  "languages": ["en-US", "de-DE", "fr-FR"],
+  "terms": [
+    {
+      "id": "T0001",
+      "lemma": "RF",
+      "language": "en-US",
+      "status": "forbidden",
+      "preferredTerm": { "de-DE": "HF", "fr-FR": "HF" },
+      "replacementSuggestion": "HF (in de-DE/fr-FR)",
+      "scope": ["all-docs"],
+      "tags": ["acronym"],
+      "notes": "Replace RF with HF in German and French localizations unless part of a product name."
+    },
+    {
+      "id": "T0002",
+      "lemma": "Base Station",
+      "language": "en-US",
+      "status": "exception",
+      "notes": "Product name – do not translate."
+    },
+    {
+      "id": "T0003",
+      "lemma": "Stand-Alone",
+      "language": "en-US",
+      "status": "preferred",
+      "preferredTerm": { "de-DE": "Stand-Alone" },
+      "notes": "Keep 'Stand-Alone' untranslated in de-DE per preference."
+    },
+    {
+      "id": "T0004",
+      "lemma": "location based mute",
+      "language": "en-US",
+      "status": "preferred",
+      "preferredTerm": { "de-DE": "Standortbasiertes Mute" },
+      "notes": "German localized term per translation rules."
+    },
+    {
+      "id": "T0005",
+      "lemma": "internal microphone mute",
+      "language": "en-US",
+      "status": "preferred",
+      "preferredTerm": { "de-DE": "Internes Mikrofon-Mute" },
+      "notes": "German localized term per translation rules."
+    },
+    {
+      "id": "T0006",
+      "lemma": "Mute (all mics)",
+      "language": "en-US",
+      "status": "preferred",
+      "preferredTerm": { "de-DE": "Mute (alle Mikrofone)" },
+      "notes": "German localized term per translation rules."
+    },
+    {
+      "id": "T0007",
+      "lemma": "Internal Microphone Noise Gate)",
+      "language": "en-US",
+      "status": "preferred",
+      "preferredTerm": { "de-DE": "Internes Mikrofon-Noise-Gate)" },
+      "notes": "German localized term per translation rules."
+    }
+  ],
+  "targets": {
+    "termchecker": { "enabled": true, "importFormat": "json" },
+    "aiAssistant": { "promptHint": "Use preferredTerm for the requested locale. Respect productNameExceptions and localeReplacements." },
+    "automation": { "exportOnChange": true, "exportFormats": ["tbx", "csv", "json"] }
+  }
+}
